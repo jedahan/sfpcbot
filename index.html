@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Sfpcbot by jedahan</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/jedahan/sfpcbot">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Sfpcbot</h1>
+            <h2>an irc bot for #sfpc on freenode, http://sfpc.io</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/jedahan/sfpcbot/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/jedahan/sfpcbot/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <p>This is an irc robot for irc://irc.freenode.net/sfpc and <a href="http://sfpc.io">http://sfpc.io</a></p>
+
+<p>Install dependencies with <code>npm install</code></p>
+
+<p>Then you can mess with bot.coffee (make sure to change the nickname!)</p>
+
+<p>To test your bot out, change the nickname and do <code>npm start</code></p>
+
+<p>The bot has two functions, <code>onMessage</code> and <code>onPrivateMessage</code>, which each take a <a href="http://codular.com/regex">regular expression</a> to filter on specific messages, and a callback that should return a message to send back. The simplest bot may look like this:</p>
+
+<div class="highlight highlight-coffee"><pre>    <span class="nv">sfpcbot = </span><span class="nx">require</span> <span class="s">'./lib/sfpcbot'</span>
+    <span class="nv">shibu = </span><span class="k">new</span> <span class="nx">sfpcbot</span><span class="p">.</span><span class="nx">bot</span> <span class="s">'simplebot'</span>
+
+    <span class="nx">shibu</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">,</span> <span class="sr">/*/</span><span class="p">,</span> <span class="nf">(from, message) -&gt;</span>
+        <span class="s">"wow so message so wow"</span>
+</pre></div>
+
+<p>That shibu bot will send a message, every time it hears any chatter. While the enthusiasm is admirable, lets make something that understands basic American conversational greetings:</p>
+
+<div class="highlight highlight-coffee"><pre>    <span class="nv">sfpcbot = </span><span class="nx">require</span> <span class="s">'./lib/sfpcbot'</span>
+    <span class="nv">nicebot = </span><span class="k">new</span> <span class="nx">sfpcbot</span><span class="p">.</span><span class="nx">bot</span> <span class="s">'nicebot'</span>
+
+    <span class="nx">nicebot</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">,</span> <span class="sr">/hello/i</span><span class="p">,</span> <span class="nf">(from, message) -&gt;</span>
+        <span class="s">"Hello </span><span class="si">#{</span><span class="nx">from</span><span class="si">}</span><span class="s">"</span>
+</pre></div>
+
+<p>If you are new to <a href="http://codular.com/regex">regular expressions</a>, the <code>i</code> after the <code>/hello/</code> is not a typo - it says <strong>i</strong>gnore the case of the message. So now our bot only says hello when someone else says "hello" or "Hello" or "HeLlO", and even says your name back!</p>
+
+<p>Other things to note about the bot, is that everything it hears will be logged to a file <code>sfpc.log</code>. If you want to see/edit the magic, check out <code>lib/sfpcbot.coffee</code>.</p>
+
+<p>Feel free to make your own bots, add <a href="http://github.com/jedahan/sfpcbot">issues</a> or submit pull requests to the main sfpcbot!</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/jedahan">jedahan</a> can be found on <a href="https://github.com/jedahan/sfpcbot">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
