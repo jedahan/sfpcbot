@@ -7,7 +7,7 @@ bot = new irc.Client 'irc.freenode.net', 'sfpcbot', {channels: ['#sfpc']}
 #   'message', 'pm', 'error' and theres a few others
 
 # 'message' is for any message
-bot.addListener 'message', (from, message) ->
+bot.addListener 'message', (from, to, message) ->
     log from, message
     # if the message contains
     if /sfpcbot/.test(message) and /[hello|hola|salut|sup|hi]/.test(message)
