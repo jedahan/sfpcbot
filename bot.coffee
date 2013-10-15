@@ -1,26 +1,11 @@
-irc = require 'irc'
+sfpc = require './lib/sfpcbot'
 
-# please only mess around in our own channel!
-bot = new irc.Client 'irc.freenode.net', 'sfpcbot', {channels: ['#sfpc']}
+bot = new sfpc.Bot 'sfpcbot-dev'
 
-# The way this bot works, is by listening to events, which can be
-#   'message', 'pm', 'error' and theres a few others
+# This bot can respond to messages, or private messages
+# On those events, we must use a regular expression to filter, and respond with a string
+bot.onMessage /[hello|hola|salut|sup|hi]/i, (from, to, message) ->
+    "HELLO COMRADE #{from}"
 
-# 'message' is for any message
-bot.addListener 'message', (from, to, message) ->
-    log from, message
-    # if the message contains
-    if /sfpcbot/.test(message) and /[hello|hola|salut|sup|hi]/.test(message)
-        bot.say '#sfpc', 'HELLO COMRADE ' + from
-
-# 'pm' is for private messages
-bot.addListener 'pm', (from, message) ->
-    log from, message 
-    if /help/i.test message
-        bot.say from, 'i cannot help you right now'
-
-# sometimes the irc channel sends error events
-bot.addListener 'error', (message) -> log 'error', message
-
-
-log = (from, message) -> console.log from + " => " + message
+bot.onPrivateMessage /help/i,(from, message) ->
+    'i cannot help you right now'
