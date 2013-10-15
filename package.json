@@ -1,0 +1,23 @@
+{ "name": "sfpcbot"
+, "homepage": "http://github.com/jedahan/sfpcbot"
+, "bugs": "http://github.com/jedahan/sfpcbot/issues"
+, "licenses": [ "ISC" ]
+, "version": "0.0.1"
+, "description": "a simple bot for http://sfpc.io"
+, "author": "Jonathan Dahan <jonathan@jedahan.com>"
+, "dependencies":
+  { "coffee-script": "1.6.x"
+  , "irc": "0.3.x"
+  }
+, "engines": {
+    "node": "0.10.x",
+    "npm":  "1.3.x"
+  }
+, "scripts":
+  { "start": "coffee bot.coffee"
+  }
+, "repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/jedahan/sfpcbot.git"
+  }
+}
