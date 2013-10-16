@@ -25,4 +25,4 @@ exports.Bot = (nick) ->
 
     bot
 
-log = (from, to, message) -> fs.appendFile('sfpc.log', "[#{Date.now()}] #{from}: #{message}\n")
+log = (from, message) -> fs.appendFile('sfpc.log', "[#{Date.now()}] #{from}: #{message}\n")
