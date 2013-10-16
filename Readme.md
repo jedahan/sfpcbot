@@ -12,7 +12,7 @@ The bot has two functions, `onMessage` and `onPrivateMessage`, which each take a
     sfpcbot = require './lib/sfpcbot'
     shibu = new sfpcbot.bot 'simplebot'
 
-    shibu.onMessage, /*/, (from, message) ->
+    shibu.onMessage /.*/, (from, to, message) ->
         "wow so message so wow"
 ```
 
@@ -22,7 +22,7 @@ That shibu bot will send a message, every time it hears any chatter. While the e
     sfpcbot = require './lib/sfpcbot'
     nicebot = new sfpcbot.bot 'nicebot'
 
-    nicebot.onMessage /hello/i, (from, message) ->
+    nicebot.onMessage /hello/i, (from, to, message) ->
         "Hello #{from}"
 ```
 
