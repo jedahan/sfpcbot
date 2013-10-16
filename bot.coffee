@@ -1,5 +1,4 @@
 sfpc = require './lib/sfpcbot'
-
 bot = new sfpc.Bot 'sfpcbot-dev'
 
 # This bot can respond to messages, or private messages
