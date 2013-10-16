@@ -16,7 +16,7 @@ shibu.onMessage /.*/, (from, to, message) ->
     "wow so message so wow"
 ```
 
-That shibu bot will send a message, every time it hears any chatter. While the enthusiasm is admirable, lets make something that understands basic American conversational greetings:
+That shibu bot will send a message, every time it hears any chatter. While it's enthusiasm is admirable, lets make something that understands basic American conversational greetings:
 
 ```coffee
 sfpcbot = require './lib/sfpcbot'
