@@ -1,5 +1,5 @@
 sfpc = require './lib/sfpcbot'
-bot = new sfpc.Bot 'sfpcbot-dev'
+bot = new sfpc.Bot 'sfpcbot'
 
 # This bot can respond to messages, or private messages
 # On those events, we must use a regular expression to filter, and respond with a string
