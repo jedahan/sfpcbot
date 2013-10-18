@@ -6,18 +6,18 @@ exports.Bot = (nick) ->
     bot = new irc.Client 'irc.freenode.net', nick, {channels: ['#sfpc']}
 
     bot.on = (regex, callback) ->
-        @onMessage regex, callback
-        @onPrivateMessage regex, callback
+        bot.onMessage regex, callback
+        bot.onPrivateMessage regex, callback
 
     bot.onMessage = (regex, callback) ->
         bot.addListener 'message', (from, to, message) ->
-            if regex.test message
+            if regex.test message and to is '#sfpc'
                 bot.say '#sfpc', callback from, to, message
 
     bot.onPrivateMessage = (regex, callback) ->
         bot.addListener 'pm', (from, message) ->
             if regex.test message
-                bot.say from, callback from, to, message
+                bot.say from, callback from, null, message
 
     # log all messages to a file
     bot.addListener 'message', (from, to, message) -> log from, message
