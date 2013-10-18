@@ -6,7 +6,7 @@ Then you can mess with bot.coffee (make sure to change the nickname!)
 
 To test your bot out, change the nickname and do `npm start`
 
-The bot has two functions, `onMessage` and `onPrivateMessage`, which each take a [regular expression][1] to filter on specific messages, and a callback that should return a message to send back. The simplest bot may look like this:
+The bot has three functions, `onMessage`, `onPrivateMessage`, and on. Each take a [regular expression][1] to filter on specific messages, and a callback that should return a message to send back. The simplest bot may look like this:
 
 ```coffee
 sfpcbot = require './lib/sfpcbot'
@@ -29,6 +29,8 @@ nicebot.onMessage /hello/i, (from, to, message) ->
  If you are new to [regular expressions][1], the `i` after the `/hello/` is not a typo - it says **i**gnore the case of the message. So now our bot only says hello when someone else says "hello" or "Hello" or "HeLlO", and even says your name back!
 
 Other things to note about the bot, is that everything it hears will be logged to a file `sfpc.log`. If you want to see/edit the magic, check out `lib/sfpcbot.coffee`.
+
+The `on` function responds to private and public messages, as a convinience.
 
 Feel free to make your own bots, add [issues][2] or submit pull requests to the main sfpcbot!
 

@@ -5,6 +5,10 @@ fs = require 'fs'
 exports.Bot = (nick) ->
     bot = new irc.Client 'irc.freenode.net', nick, {channels: ['#sfpc']}
 
+    bot.on = (regex, callback) ->
+        @onMessage regex, callback
+        @onPrivateMessage regex, callback
+
     bot.onMessage = (regex, callback) ->
         bot.addListener 'message', (from, to, message) ->
             if regex.test message
